@@ -1,0 +1,73 @@
+post:
+  operationId: getAccessToken
+  security: []
+  summary: Get access token
+  tags: 
+    - Authentication
+  description: |-
+    Request an access token using your OwlyReads profile credentials.  
+    Include the token in the `Authorization` header as `Bearer {token}` for API calls.
+  requestBody:
+    required: true
+    content:
+      application/x-www-form-urlencoded:
+        schema:
+          type: object
+          required:
+            - grantType
+            - profileId
+            - profileSecret
+          properties:
+            grantType:
+              type: string
+              description: OAuth grant type. Use <code>profileCredentials</code>.
+              example: profileCredentials
+            profileId:
+              type: string
+              description: OwlyReads profile ID.
+              example: p94a0459f6t141659ea75sdcb393c111
+            profileSecret:
+              type: string
+              description: Secret key for your OwlyReads profile.
+              example: XyZ89pQwErT456LmNoPq
+  responses:
+    '200':
+      description: Access token response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access_token:
+                type: string
+                description: JWT string used to authenticate API requests.
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+              token_type:
+                type: string
+                description: Token type.
+                example: Bearer
+              expires_in:
+                type: integer
+                description: Lifetime of the token in seconds before it expires.
+                example: 3600
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '401':
+      description: Invalid profile credentials
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error_code:
+                type: string
+                description: Numeric code identifying the type of error.
+                example: 4010
+              error_message:
+                type: string
+                description: Descriptive message providing more details about the error.
+                example: profile_id or profile_secret is invalid

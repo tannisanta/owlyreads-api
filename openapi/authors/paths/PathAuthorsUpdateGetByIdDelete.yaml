@@ -1,0 +1,126 @@
+put:
+  operationId: updateAuthor
+  summary: Update author
+  tags:
+    - Authors
+  description: Modify information of an existing author.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Unique author identifier.
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../requests/RequestAuthorsUpdate.yaml'
+  responses:
+    '200':
+      description: Updated author details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SchemaAuthor.yaml'
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '404':
+      description: Author not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+
+get:
+  operationId: getAuthorById
+  summary: Get author by ID
+  tags:
+    - Authors
+  description: Get detailed information about a single author using their unique identifier.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Unique author identifier.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: Author details
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SchemaAuthor.yaml'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '404':
+      description: Author not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '500':
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+
+delete:
+  operationId: deleteAuthor
+  summary: Delete author
+  tags:
+    - Authors
+  description: |
+    Remove an author from the system using their unique identifier. This action is irreversible.
+
+    <blockquote>
+      <p>An author cannot be deleted if at least one book is linked to them.</p>
+    </blockquote>
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Unique author identifier.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '204':
+      description: Author deleted
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '404':
+      description: Author not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '500':
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'

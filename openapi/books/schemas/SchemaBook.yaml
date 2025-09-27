@@ -1,0 +1,104 @@
+title: Book
+type: object
+required:
+  - id
+  - title
+  - authorId
+  - authorName
+  - categoryId
+  - categoryName
+  - type
+  - price
+  - currency
+  - inSeries
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique book identifier.
+    example: "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
+  title:
+    type: string
+    description: Book title.
+    example: "The Silent Witness"
+  description:
+    type: string
+    description: Book overview.
+    example: "A gripping detective story where clues lead to unexpected twists."
+  authorId:
+    type: string
+    format: uuid
+    description: Unique author identifier.
+    example: "4f3d2c1b-0a9e-8d7c-6b5a-4f3e2d1c0b9a"
+  authorName:
+    type: string
+    description: Name of the author.
+    example: "Agatha Christie"
+  categoryId:
+    type: string
+    format: uuid
+    description: Unique category identifier.
+    example: "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d"
+  categoryName:
+    type: string
+    description: Book category name.
+    example: "Detective"
+  availability:
+    type: boolean
+    description: Indicates whether the book is available in stock.
+    example: true
+  type:
+    type: string
+    enum: [hardcover, softcover]
+    description: Book cover type.
+    example: "softcover"
+  price:
+    type: number
+    format: float
+    description: Book price.
+    example: 18.99
+  currency:
+    type: string
+    description: Price currency in ISO 4217 format.
+    example: "USD"
+  inSeries:
+    type: string
+    enum: [series]
+    description: Whether the book is part of a series.
+    example: "series"
+  seriesInfo:
+    type: object
+    description: |
+      Contains the series details.
+
+      <blockquote>
+        <p>Required when the <code>inSeries</code> value is <code>series</code>.</p>
+      </blockquote>
+    required:
+      - seriesId
+      - seriesTitle
+      - orderInSeries
+    properties:
+      seriesId:
+        type: string
+        format: uuid
+        description: Unique series identifier.
+        example: "5a67b21d-1b34-40ab-9f1e-79cc8d9dce20"
+      seriesTitle:
+        type: string
+        description: Title of the series.
+        example: "Harry Potter"
+      orderInSeries:
+        type: integer
+        description: Order of this book in the series.
+        example: 2
+  createdAt:
+    type: string
+    format: date-time
+    description: Date when the book was first added.
+    example: "2025-01-15T10:20:30Z"
+  updatedAt:
+    type: string
+    format: date-time
+    description: Date when the book details were last updated.
+    example: "2025-09-27T19:45:00Z"

@@ -1,0 +1,6 @@
+type: object
+discriminator:
+  propertyName: inSeries
+  mapping:
+    standalone: '../schemas/SchemaBookStandalone.yaml'
+    series: '../schemas/SchemaBookInSeries.yaml'

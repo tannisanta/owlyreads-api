@@ -1,0 +1,81 @@
+post:
+  operationId: addCategory
+  summary: Add new category
+  tags:
+    - Categories
+  description: Create a new book category to organize books into logical groups, such as fantasy, science fiction, or mystery.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../requests/RequestCategoriesAdd.yaml'
+  responses:
+    '201':
+      description: Category added
+      content:
+        application/json:
+          schema:
+            $ref: '../responses/ResponseCategoriesAdd.yaml'
+    '400':
+      description: Invalid input
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '500':
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+
+get:
+  operationId: getAllCategories
+  summary: List all categories
+  tags:
+    - Categories
+  description: Retrieve a paginated list of all book categories. Use query parameters to control pagination and the number of results returned.
+  parameters:
+    - name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 20
+        minimum: 1
+        maximum: 100
+      description: Maximum number of categories to return.
+    - name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+      description: Number of categories to skip for pagination.
+  responses:
+    '200':
+      description: List of categories
+      content:
+        application/json:
+          schema:
+            $ref: '../responses/ResponseCategoriesList.yaml'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '500':
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'

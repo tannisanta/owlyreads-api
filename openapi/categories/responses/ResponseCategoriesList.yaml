@@ -1,0 +1,21 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: List of categories returned.
+    items:
+      $ref: '../schemas/SchemaCategory.yaml'
+  total:
+    type: integer
+    description: Total number of categories available.
+    example: 30
+  limit:
+    type: integer
+    description: Number of categories returned in this response.
+    example: 20
+  offset:
+    type: integer
+    description: Number of categories skipped in the response.
+    example: 0

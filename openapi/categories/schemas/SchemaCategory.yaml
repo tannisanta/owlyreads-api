@@ -1,0 +1,18 @@
+type: object
+required:
+  - id
+  - name
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique category identifier.
+    example: "4b7c8d9e-1234-5678-abcd-9876543210ef"
+  name:
+    type: string
+    description: Category name.
+    example: Science fiction
+  description:
+    type: string
+    description: Category description.
+    example: Stories about futuristic technology, space travel, and exploration.

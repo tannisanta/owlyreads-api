@@ -1,0 +1,39 @@
+title: ResponseAuthorsAdd
+type: object
+required:
+  - id
+  - name
+  - country
+  - genre
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique author identifier.
+    example: "4f3d2c1b-0a9e-8d7c-6b5a-4f3e2d1c0b9a"
+  name:
+    type: string
+    description: Full name of the author.
+    example: "Agatha Christie"
+  country:
+    type: string
+    description: Country of origin of the author.
+    example: "United Kingdom"
+  genre:
+    type: string
+    description: Main genre associated with the author.
+    example: "Detective fiction"
+  bookCount:
+    type: integer
+    description: Total number of books in stock by this author.
+    example: "85"
+  createdAt:
+    type: string
+    format: date-time
+    description: Date and time when the author was added.
+    example: "2025-09-27T12:34:56Z"
+  updatedAt:
+    type: string
+    format: date-time
+    description: Date and time of the last update to author details.
+    example: "2025-09-28T09:12:45Z"

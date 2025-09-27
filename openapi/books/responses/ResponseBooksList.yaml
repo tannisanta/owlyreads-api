@@ -1,0 +1,21 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: List of books returned.
+    items:
+      $ref: '../schemas/SchemaBook.yaml'
+  total:
+    type: integer
+    description: Total number of books available.
+    example: 125
+  limit:
+    type: integer
+    description: Number of books returned in this response.
+    example: 20
+  offset:
+    type: integer
+    description: Number of books skipped in the response.
+    example: 0

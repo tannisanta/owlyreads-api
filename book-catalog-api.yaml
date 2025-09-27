@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  version: '1.0.0'
+  title: OwlyReads Catalog API
+  description:
+    $ref: 'openapi/main/md/description.md'
+  x-logo:
+    url: 'https://i.ibb.co/yFRhwWZv/wisdom-owly-reads.png'
+    backgroundColor: '#ffffff'
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://api.books-catalog.com
+    description: Production server
+security:
+  - JWT: []
+components:
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      x-displayName: Bearer JWT
+      description: 'Use your company-issued JWT token'
+tags:
+  - name: Authentication
+    description: |-
+      To use the OwlyReads API, you first need an access token. This token identifies your account and allows you to make authorized requests.
+      
+      <blockquote>
+       <p>The token is valid for 1 hour (3600 seconds).</p>
+      </blockquote>
+  - name: Books
+    description: Manage book records, including listing, adding, updating, and deleting books.
+  - name: Authors
+    description: Manage authors, including retrieving details, listing all authors, and linking authors to books.
+  - name: Categories
+    description: Manage book categories, including listing, adding, and updating categories.
+  - name: Reports
+    description: Access reports on books, including availability counts.
+  - name: Changelog
+    description:
+      $ref: 'openapi/main/md/changelog.md'
+x-tagGroups:
+  - name: Get started
+    tags:
+      - Authentication
+  - name: Catalog
+    tags:
+      - Books
+      - Authors
+      - Categories
+  - name: Analytics
+    tags:
+      - Reports
+  - name: "―――――――――――――――――"
+    tags:
+      - Changelog
+paths:
+  /oauth/token:
+    $ref: './openapi/main/paths/PathAuthentication.yaml'
+  /books:
+    $ref: './openapi/books/paths/PathBooksAddList.yaml'
+  /books/{id}:
+    $ref: './openapi/books/paths/PathBooksGetBookByIdUpdateDelete.yaml'
+  /authors:
+    $ref: './openapi/authors/paths/PathAuthorsAddList.yaml'
+  /authors/{id}:
+    $ref: './openapi/authors/paths/PathAuthorsUpdateGetByIdDelete.yaml'
+  /authors/{id}/books:
+    $ref: './openapi/authors/paths/PathAuthorsGetBooksByAuthor.yaml'
+  /categories:
+    $ref: './openapi/categories/paths/PathCategoriesAddList.yaml'
+  /categories/{id}:
+    $ref: './openapi/categories/paths/PathCategoriesId.yaml'
+  /categories/{id}/books:
+    $ref: './openapi/categories/paths/PathCategoriesGetBooksByCategory.yaml'
+  /reports/book-availability:
+    $ref: './openapi/reports/paths/PathReportsBookAvailability.yaml'

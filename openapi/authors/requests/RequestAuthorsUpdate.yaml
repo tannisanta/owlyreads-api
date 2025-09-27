@@ -1,0 +1,15 @@
+title: RequestAuthorsUpdate
+type: object
+properties:
+  name:
+    type: string
+    description: Full name of the author.
+    example: "Agatha Christie"
+  country:
+    type: string
+    description: Country of origin of the author.
+    example: "United Kingdom"
+  genre:
+    type: string
+    description: Main genre associated with the author.
+    example: "Detective fiction"

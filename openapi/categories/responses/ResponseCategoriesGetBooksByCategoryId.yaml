@@ -1,0 +1,19 @@
+type: object
+required:
+  - id
+  - data
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique category identifier.
+    example: "4b7c8d9e-1234-5678-abcd-9876543210ef"
+  data:
+    type: array
+    description: List of books in the category.
+    items:
+      $ref: '../../books/schemas/SchemaBook.yaml'
+  total:
+    type: integer
+    description: Total number of books in this category.
+    example: 45

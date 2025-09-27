@@ -1,0 +1,6 @@
+type: object
+discriminator:
+  propertyName: inSeries
+  mapping:
+    standalone: '../schemas/SchemaBookAddUpdateRetriveResponseStandalone.yaml'
+    series: '../schemas/SchemaBookAddUpdateRetriveResponseInSeries.yaml'

@@ -1,0 +1,44 @@
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: List of books available in stock.
+    items:
+      type: object
+      required:
+        - id
+        - title
+        - availability
+        - stock
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique book identifier.
+          example: 1a2b3c4d-5e6f-7g8h-9i0j-123456789abc
+        title:
+          type: string
+          description: Book title.
+          example: The Great Adventure
+        availability:
+          type: boolean
+          description: Indicates whether the book is currently available.
+          example: true
+        stock:
+          type: integer
+          description: Number of copies available.
+          example: 42
+  total:
+    type: integer
+    description: Total number of books in the report.
+    example: 125
+  limit:
+    type: integer
+    description: Maximum number of books returned in this response.
+    example: 50
+  offset:
+    type: integer
+    description: Number of books skipped for pagination.
+    example: 0

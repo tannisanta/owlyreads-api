@@ -1,0 +1,13 @@
+type: object
+required:
+  - errorCode
+  - errorMessage
+properties:
+  errorCode:
+    type: string
+    description: Code identifying the type of error.
+    example: 2.07
+  errorMessage:
+    type: string
+    description: Descriptive message providing more details about the error.
+    example: Invalid input provided for one or more fields.

@@ -1,0 +1,12 @@
+type: object
+required:
+  - name
+properties:
+  name:
+    type: string
+    description: Category name.
+    example: "Fantasy"
+  description:
+    type: string
+    description: Category description.
+    example: "Magical stories with mythical creatures and epic adventures."

@@ -1,0 +1,22 @@
+title: ResponseAuthorsList
+type: object
+required:
+  - data
+properties:
+  data:
+    type: array
+    description: List of authors returned.
+    items:
+      $ref: '../schemas/SchemaAuthor.yaml'
+  total:
+    type: integer
+    description: Total number of authors available.
+    example: 42
+  limit:
+    type: integer
+    description: Number of authors returned in this response.
+    example: 20
+  offset:
+    type: integer
+    description: Number of authors skipped in the response.
+    example: 0

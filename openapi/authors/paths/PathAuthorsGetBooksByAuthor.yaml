@@ -1,0 +1,21 @@
+get:
+  operationId: getBooksByAuthor
+  summary: Get books by author ID
+  tags:
+    - Authors
+  description: Retrieve a list of all books written by a specific author using their unique identifier.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Unique author identifier.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: Books by author
+      content:
+        application/json:
+          schema:
+            $ref: '../responses/ResponseAuthorsBooksbyAuthorId.yaml'

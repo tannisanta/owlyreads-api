@@ -1,0 +1,21 @@
+type: object
+required:
+  - id
+  - name
+  - books
+  - coverCount
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique author identifier.
+    example: "3f2d1c4b-5a6e-7d8f-9c0b-1a2d3e4f5g6h"
+  name:
+    type: string
+    description: Full name of the author.
+    example: "Agatha Christie"
+  books:
+    type: array
+    description: List of books written by the author.
+    items:
+      $ref: '../../books/schemas/SchemaBook.yaml'

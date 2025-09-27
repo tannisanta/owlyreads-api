@@ -1,0 +1,39 @@
+get:
+  operationId: getBooksByCategoryId
+  summary: Get books by category ID
+  tags:
+    - Categories
+  description: Retrieve details of a specific book category by its unique identifier.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Unique category identifier.
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: List of books belonging to the specified category
+      content:
+        application/json:
+          schema:
+            $ref: '../responses/ResponseCategoriesBooksByCategoryId.yaml'
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '404':
+      description: Category not found
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
+    '500':
+      description: Server error
+      content:
+        application/json:
+          schema:
+            $ref: '../../main/responses/ErrorResponse.yaml'
