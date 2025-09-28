@@ -56,31 +56,31 @@ The changelog lists all updates, enhancements, and removals in the API.
     </button>
     <div style="padding: 0 18px; background-color: #fff; display: block; overflow: hidden;">
 <!-- 27 September -->
-<p><strong>27 September 2025</strong></p>
+<p style="margin-left: 10px;"><strong>27 September 2025</strong></p>
 <table style="table-layout: fixed; border-collapse: collapse; width: 100%; border: none;">
-    <tr>
-        <td style="width: 25%; vertical-align: top; padding-right: 10px; border: none;">
+    <tr style="border: none;">
+        <td style="width: 150px; vertical-align: top; padding-right: 0; border: none; display: flex; align-items: flex-start; justify-content: flex-start;"">
             <svg xmlns="http://www.w3.org/2000/svg" width="65" height="20" viewBox="0 0 65 20">
                 <rect x="1" y="1" width="63" height="18" rx="4" fill="none" stroke="#308132" stroke-width="1"></rect>
                 <text x="32" y="14" font-size="12" fill="#308132" font-family="Arial, sans-serif" font-weight="lighter" text-anchor="middle">Added</text>
             </svg>
         </td>
-        <td style="width: 75%; vertical-align: top; border: none;">
+        <td style="width: 800px; vertical-align: top; border: none;">
             <code>currency</code> field to the requests and responses of the Books section.
         </td>
     </tr>
 </table>
 <!-- 5 August -->
-<p><strong>5 August 2025</strong></p>
+<p style="margin-left: 10px;"><strong>5 August 2025</strong></p>
 <table style="table-layout: fixed; border-collapse: collapse; width: 100%; border: none;">
-    <tr>
-        <td style="width: 25%; vertical-align: top; padding-right: 10px; border: none;">
+    <tr style="border: none;">
+        <td style="width: 150px; vertical-align: top; padding-right: 0; border: none; display: flex; align-items: flex-start; justify-content: flex-start;"">
             <svg xmlns="http://www.w3.org/2000/svg" width="65" height="20" viewBox="0 0 65 20">
                 <rect x="1" y="1" width="63" height="18" rx="4" fill="none" stroke="#308132" stroke-width="1"></rect>
                 <text x="32" y="14" font-size="12" fill="#308132" font-family="Arial, sans-serif" font-weight="lighter" text-anchor="middle">Added</text>
             </svg>
         </td>
-        <td style="width: 75%; vertical-align: top; border: none;">
+        <td style="width: 800px; vertical-align: top; border: none;">
             <code>availability</code> field to indicate whether the book is in stock in all operations related to books.
         </td>
     </tr>
