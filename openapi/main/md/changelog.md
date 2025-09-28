@@ -66,7 +66,7 @@ The changelog lists all updates, enhancements, and removals in the API.
             </svg>
         </td>
         <td style="width: 75%; vertical-align: top; border: none;">
-            Added <code>currency</code> field to the requests and responses of the Books section.
+            <code>currency</code> field to the requests and responses of the Books section.
         </td>
     </tr>
 </table>
@@ -81,7 +81,7 @@ The changelog lists all updates, enhancements, and removals in the API.
             </svg>
         </td>
         <td style="width: 75%; vertical-align: top; border: none;">
-            Added <code>availability</code> field to indicate whether the book is in stock in all operations related to books.
+            <code>availability</code> field to indicate whether the book is in stock in all operations related to books.
         </td>
     </tr>
 </table>
